@@ -79,6 +79,7 @@ class Auth extends Component {
             isValid = pattern.test(value) && isValid
         }
 
+        console.log(isValid);
         return isValid;
     }
 
