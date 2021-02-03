@@ -13,15 +13,12 @@ import * as actions from '../../store/actions/index';
 import axios from '../../axios-orders';
 
 
-// console.log(INGREDIENT_PRICES)
-
-class BurgerBuilder extends Component {
+export class BurgerBuilder extends Component {
     state = {
         purchasing: false,
     }
 
     componentDidMount() {
-        console.log(this.props);
         this.props.onInitIngredients();
     }
 
