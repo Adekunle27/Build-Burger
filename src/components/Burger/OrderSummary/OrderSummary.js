@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Aux from "../../../hoc/Auxilliary/Auxilliary";
 import Button from "../../UI/Button/Button";
 
@@ -7,15 +7,13 @@ import Button from "../../UI/Button/Button";
 // import { Route, NavLink } from 'react-router-dom';
 
 
-class OrderSummary extends Component {
-
-  render() {
-    const ingredientSummary = Object.keys(this.props.ingredients).map(
+const OrderSummary = props => {
+    const ingredientSummary = Object.keys(props.ingredients).map(
       (igKey) => {
         return (
           <li key={igKey}>
             <span style={{ textTransform: "capitalize" }}>{igKey}</span>:{" "}
-            {this.props.ingredients[igKey]}
+            {props.ingredients[igKey]}
           </li>
         );
       }
@@ -27,16 +25,15 @@ class OrderSummary extends Component {
         <p>A delicious burger with the followimg ingredients:</p>
         <ul>{ingredientSummary}</ul>
         <p>
-          <strong>Total Price: {this.props.price.toFixed(2)}</strong>
+          <strong>Total Price: {props.price.toFixed(2)}</strong>
         </p>
         <p>Continue to Checkout</p>
-        <Button clicked={this.props.purchaseCanceled} btnType="Danger">
+        <Button clicked={props.purchaseCanceled} btnType="Danger">
           CANCEL
         </Button>
-        <Button clicked={this.props.purchaseContinued} btnType="Success">CONTINUE</Button>
+        <Button clicked={props.purchaseContinued} btnType="Success">CONTINUE</Button>
       </Aux>
     );
-  }
 }
 
 export default OrderSummary;
